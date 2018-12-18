@@ -15,9 +15,28 @@ import KirbyStage from './entities/KirbyStage';
 import Pupper from './entities/Pupper';
 
 const slidesText = [
-  "this is page 1",
-  "this is page 2",
-  "this is page 3",
+  "Virtual Reality on the Web with React 360",
+  "@veekas everywhere",
+  "What is React 360?",
+  "open source web VR library managed by Facebook and Oculus",
+  "the library formerly known as react-vr (RIP) in early 2017",
+  "rebuilt from first principles in 2018",
+  "How does it work?",
+  "It's built on React Native to work on mobile, web, and VR devices...",
+  "including the Oculus VR UI...",
+  "and Three.js for lower level 3D rendering in the browser...",
+  "and WebVR for browser APIs.",
+  "What's great about it?",
+  "It's pretty easy!",
+  "`npm i -g react-360-cli`",
+  "`react-360 init projectName`",
+  "`yarn start`",
+  "let's see some code!",
+  "What's not great about it?",
+  "npm package not updated in 8 months",
+  "scaleZ???",
+  "few primitives",
+  "`import Entity from 'Entity'`",
 ]
 
 export default class ReactVRPlayground extends React.Component {
@@ -101,6 +120,7 @@ const styles = StyleSheet.create({
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
+    maxWidth: '80%',
   },
 });
 
