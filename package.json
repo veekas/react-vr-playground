@@ -10,15 +10,18 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.0.0",
-    "react-native": "~0.49.5",
-    "three": "^0.87.0",
-    "react-360": "~1.0.0",
-    "react-360-web": "~1.0.0"
+    "metro-bundler": "0.22.1",
+    "react": "16.7.0-alpha.2",
+    "react-360": "1.0.0",
+    "react-360-web": "1.0.2",
+    "react-native": "npm:@brunolemos/react-native",
+    "three": "0.99.0"
   },
   "devDependencies": {
+    "@types/react": "16.7.17",
+    "@types/react-native": "0.57.18",
     "babel-jest": "^19.0.0",
-    "babel-preset-react-native": "^1.9.1",
+    "babel-preset-react-native": "5",
     "jest": "^19.0.2",
     "react-devtools": "^2.5.2",
     "react-test-renderer": "16.0.0",
