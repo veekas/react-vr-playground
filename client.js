@@ -27,6 +27,11 @@ function init(bundle, parent, options = {}) {
   );
 
   r360.renderToLocation(
+    r360.createRoot('Doggo', { /* initial props */ }),
+    r360.getDefaultLocation(),
+  );
+
+  r360.renderToLocation(
     r360.createRoot('KirbyStage', { /* initial props */ }),
     // r360.getDefaultLocation(),
     new Location([ 250, -100, 0]),
@@ -36,6 +41,11 @@ function init(bundle, parent, options = {}) {
     r360.createRoot('Pupper', { /* initial props */ }),
     // r360.getDefaultLocation(),
     new Location([ 0, 0, 0]),
+  );
+
+  r360.renderToLocation(
+    r360.createRoot('ReactNYCView', { /* initial props */ }),
+    r360.getDefaultLocation(),
   );
 
   // Load the initial environment

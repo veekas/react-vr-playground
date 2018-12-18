@@ -7,6 +7,8 @@ import {
   VrButton,
 } from 'react-360';
 
+import ReactNYCView from './entities/ReactNYCView';
+import Doggo from './entities/Doggo';
 import CaptainFalcon from './entities/CaptainFalcon';
 import Kirby from './entities/Kirby';
 import KirbyStage from './entities/KirbyStage';
@@ -107,3 +109,5 @@ AppRegistry.registerComponent('KirbyStage', () => KirbyStage);
 AppRegistry.registerComponent('Pupper', () => Pupper);
 AppRegistry.registerComponent('Kirby', () => Kirby);
 AppRegistry.registerComponent('CaptainFalcon', () => CaptainFalcon);
+AppRegistry.registerComponent('Doggo', () => Doggo);
+AppRegistry.registerComponent('ReactNYCView', () => ReactNYCView);
