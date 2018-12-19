@@ -11,6 +11,7 @@ code for 12/2018 ReactNYC talk about react-360
 ### Code
 
 - [Matt Hamil's React-VR-Frogger](https://github.com/matthamil/React-VR-Frogger)
+- [Lily Barrett's Find Your Zen demo](https://github.com/lilybarrett/find-your-zen-react-360)
 
 ### Docs
 
