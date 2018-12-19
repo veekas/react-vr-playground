@@ -1,148 +1,97 @@
-// import React from 'react';
-// import {
-//   AppRegistry,
-//   StyleSheet,
-//   Text,
-//   View,
-// } from 'react-360';
-
-// export default class react_vr_playground extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.panel}>
-//         <View style={styles.greetingBox}>
-//           <Text style={styles.greeting}>
-//             Welcome to React 360
-//           </Text>
-//         </View>
-//       </View>
-//     );
-//   }
-// };
-
-// const styles = StyleSheet.create({
-//   panel: {
-//     // Fill the entire surface
-//     width: 1000,
-//     height: 600,
-//     backgroundColor: 'rgba(255, 255, 255, 0.4)',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   greetingBox: {
-//     padding: 20,
-//     backgroundColor: '#000000',
-//     borderColor: '#639dda',
-//     borderWidth: 2,
-//   },
-//   greeting: {
-//     fontSize: 30,
-//   },
-// });
-
-// AppRegistry.registerComponent('react_vr_playground', () => react_vr_playground);
-
 import React from 'react';
 import {
   AppRegistry,
-  Environment,
   StyleSheet,
   Text,
   View,
   VrButton,
 } from 'react-360';
 
-class Background extends React.Component {
-  constructor(props) {
-    super();
-    Environment.setBackgroundImage(props.uri, {format: props.format});
+import ReactNYCView from './entities/ReactNYCView';
+import Doggo from './entities/Doggo';
+import CaptainFalcon from './entities/CaptainFalcon';
+import Kirby from './entities/Kirby';
+import KirbyStage from './entities/KirbyStage';
+import Pupper from './entities/Pupper';
+
+const slidesText = [
+  "Virtual Reality on the Web with React 360",
+  "@veekas everywhere",
+  "What is React 360?",
+  "open source web VR library managed by Facebook and Oculus",
+  "the library formerly known as react-vr (RIP) in early 2017",
+  "rebuilt from first principles in 2018",
+  "How does it work?",
+  "It's built on React Native to work on mobile, web, and VR devices...",
+  "including the Oculus VR UI...",
+  "and Three.js for lower level 3D rendering in the browser...",
+  "and WebVR for browser APIs.",
+  "What's great about it?",
+  "It's pretty easy!",
+  "`npm i -g react-360-cli`",
+  "`react-360 init projectName`",
+  "`yarn start`",
+  "let's see some code!",
+  "What's not great about it?",
+  "npm package not updated in 8 months",
+  "scaleZ???",
+  "few primitives",
+  "`import Entity from 'Entity'`",
+  "so please make some PRs!",
+  "Thank you!!!",
+]
+
+export default class ReactVRPlayground extends React.Component {
+  state = { slide: 0, totalSlides: slidesText.length };
+
+  nextSlide = () => {
+    const { totalSlides } = this.state;
+
+    const nextIndex = this.state.slide + 1;
+    const slide = nextIndex < totalSlides ? nextIndex : totalSlides - 1;
+    this.setState({ slide });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.uri !== this.props.uri ||
-      nextProps.format !== this.props.format
-    ) {
-      Environment.setBackgroundImage(nextProps.uri, {format: nextProps.format});
-    }
-  }
+  prevSlide = () => {
+    const previousIndex = this.state.slide - 1;
+    const slide = previousIndex >= 0 ? previousIndex : 0;
+    this.setState({ slide });
+  };
 
   render() {
-    return null;
-  }
-}
-
-class Slideshow extends React.Component {
-  state = {
-    index: 0,
-  };
-
-  _prevPhoto = () => {
-    let next = this.state.index - 1;
-    if (next < 0) {
-      next += this.props.photos.length;
-    }
-    this.setState({
-      index: next,
-    });
-  };
-
-  _nextPhoto = () => {
-    this.setState({
-      index: this.state.index + 1,
-    });
-  };
-
-  render() {
-    const current = this.props.photos[
-      this.state.index % this.props.photos.length
-    ];
     return (
-      <View style={styles.wrapper}>
-        <Background uri={current.uri} format={current.format} />
-        <View style={styles.controls}>
-          <VrButton onClick={this._prevPhoto} style={styles.button}>
+      <View style={ styles.panel }>
+        <View style={ styles.greetingBox }>
+
+          <VrButton onClick={this.prevSlide} style={styles.button}>
             <Text style={styles.buttonText}>{'<'}</Text>
           </VrButton>
-          <View>
-            <Text style={styles.title}>{current.title}</Text>
+
+          <View style={styles.titleView}>
+            <Text style={styles.title}>
+              {slidesText[this.state.slide]}
+            </Text>
           </View>
-          <VrButton onClick={this._nextPhoto} style={styles.button}>
+
+          <VrButton onClick={this.nextSlide} style={styles.button}>
             <Text style={styles.buttonText}>{'>'}</Text>
           </VrButton>
+
         </View>
       </View>
     );
   }
-}
+};
+
+
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 600,
-    width: 1000,
-  },
-  controls: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: 600,
-    padding: 10,
-  },
-  title: {
-    color: '#ffffff',
-    textAlign: 'left',
-    fontSize: 36,
-    fontWeight: 'bold',
-  },
   button: {
-    backgroundColor: '#c0c0d0',
-    borderRadius: 5,
+    backgroundColor: '#ccc',
     width: 40,
-    height: 44,
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
   },
   buttonText: {
     textAlign: 'center',
@@ -150,6 +99,37 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
   },
+  panel: {
+    // Fill the entire surface
+    width: 900,
+    height: 600,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  greetingBox: {
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  title: {
+    color: 'black',
+    fontSize: 40,
+  },
+  titleView: {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    maxWidth: '80%',
+  },
 });
 
-AppRegistry.registerComponent('SlideshowSample', () => Slideshow);
+AppRegistry.registerComponent('ReactVRPlayground', () => ReactVRPlayground);
+AppRegistry.registerComponent('KirbyStage', () => KirbyStage);
+AppRegistry.registerComponent('Pupper', () => Pupper);
+AppRegistry.registerComponent('Kirby', () => Kirby);
+AppRegistry.registerComponent('CaptainFalcon', () => CaptainFalcon);
+AppRegistry.registerComponent('Doggo', () => Doggo);
+AppRegistry.registerComponent('ReactNYCView', () => ReactNYCView);

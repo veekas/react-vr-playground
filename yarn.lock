@@ -4423,7 +4423,7 @@ react-360-web@~1.0.0:
   dependencies:
     three-gltf2-loader "~1.2.0"
 
-react-360@~1.0.0:
+react-360@1.0.0:
   version "1.0.0"
   resolved "http://local-npm-proxy.elasticbeanstalk.com/react-360/-/react-360-1.0.0.tgz#c6201f1dee101c5c9e6e5ed24121021de4222899"
   integrity sha512-y0NZo/dbB1juEMQbQz5smqZdgCpQXQBbr4GWOVzBjuGbDm8fxJmUdOx4X99DPR5vg8zka++23Q4oy5LsPmvCvQ==
