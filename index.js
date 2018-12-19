@@ -37,6 +37,8 @@ const slidesText = [
   "scaleZ???",
   "few primitives",
   "`import Entity from 'Entity'`",
+  "so please make some PRs!",
+  "Thank you!!!",
 ]
 
 export default class ReactVRPlayground extends React.Component {
